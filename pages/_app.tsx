@@ -2,7 +2,7 @@ import '@/styles/globals.css'
 import styles from '@/styles/App.module.css'
 
 import Head from 'next/head'
-import Header from "./components/Header"
+import Header from "../components/Header"
 
 import type { AppProps } from 'next/app'
 

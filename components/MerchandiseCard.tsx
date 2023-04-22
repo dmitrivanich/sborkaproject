@@ -6,11 +6,12 @@ import styles from "@/styles/MerchandiseCard.module.scss"
 import Cart from "@/public/cart_white.svg"
 
 export default function MerchandiseCard({merchandise}:{merchandise:Merchandise}) {
+    console.log(merchandise.name)
   return (
     <div className={styles.card}>
         <div className={styles.imageBox}>
             <Image
-            src={`/images-sneakers/${merchandise.name}.png`}
+            src={`/images-sneakers/${merchandise?.name}.png`}
             alt="Cart picture"
             width={228}
             height={130}

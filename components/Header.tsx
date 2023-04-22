@@ -10,7 +10,7 @@ import { useAppStore } from '@/store'
 export default function Header() {
 
   const cart = useAppStore(state => state.cart)
-  console.log(cart)
+  
   return (
     <div className={styles.header}>
       <Image
