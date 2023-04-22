@@ -1,0 +1,50 @@
+.card{
+    height: 300px;
+    width: 250px;
+    border: 1px solid #E7E7E7;
+    border-radius: 3px;
+}
+
+.cardName{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+    max-width: 165px;
+    padding: 12px 0;
+    margin-left: 15px;
+}
+
+.imageBox{
+    padding: 28.5px 10.5px;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.priceBox{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 15px;
+
+    p{
+        margin-left: 15px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+
+        color: #000000;
+    }
+}
+
+.cartButton{
+    background-color: #3366FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px; 
+    width: 40px;
+    height: 40px;
+}
