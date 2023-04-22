@@ -11,10 +11,9 @@ export default function MerchandiseCard({merchandise}:{merchandise:Merchandise})
     <div className={styles.card}>
         <div className={styles.imageBox}>
             <Image
-            src={`/images-sneakers/${merchandise?.name}.png`}
-            alt="Cart picture"
-            width={228}
-            height={130}
+                src={`/images-sneakers/${merchandise?.name}.png`}
+                alt="Cart picture"
+                quality={100}
             />
         </div>
 
