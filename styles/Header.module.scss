@@ -1,0 +1,51 @@
+.hidden{
+    display: none;
+}
+
+.header{
+    width: 100%;
+    height: 81px;
+    background-color: #fff;
+    border-bottom: 1px solid #CFCFCF;
+
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.logo, .cart{
+    position: absolute;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.logo{
+    left: 30px;
+}
+
+.cart{
+    right: 30px;
+}
+
+.visibleCartStatus {
+    position: absolute;
+    right: -5px;
+    top: -5px;
+
+    min-width: 13px;
+    height: 13px;
+    border-radius: 10px;
+    background-color: rgb(51, 102, 255);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p{
+        padding: 0 4px;
+        font-style: italic normal;
+        color: #fff;
+        font-size: 10px;
+        text-align: center;
+    }
+}
