@@ -13,8 +13,8 @@ export default function MerchandiseCard({merchandise}:{merchandise:Merchandise})
             <Image
                 src={`/images-sneakers/${merchandise?.name}.png`}
                 alt="Cart picture"
-                width={50}
-                height={50}
+                width={228}
+                height={130}
                 quality={100}
             />
         </div>
