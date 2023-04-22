@@ -1,7 +1,8 @@
 export interface Merchandise {
     id: number,
     name: string,
-    price: number
+    price: number,
+    IMN: string,
     quantity?: number,
   }
   

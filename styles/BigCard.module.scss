@@ -1,0 +1,76 @@
+.back_button{
+    width: 156px;
+    height: 40px;
+    left: 170px;
+    top: 111px;
+
+    background: #3366FF;
+    border-radius: 3px;
+    color: #fff;
+    border: none;
+    margin: 20px 0;
+
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    &:hover{
+        opacity: 0.7;
+    }
+}
+
+.card{
+    width: 892px;
+    margin: 10px auto 50px auto;
+}
+
+.cardName{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+    padding: 20px 0 5px 0;
+    margin-left: 15px;
+}
+
+.IMN{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 0px 0 12px 0;
+    margin-left: 15px;
+}
+
+.imageBox{
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-drag: none;
+    border: 1px solid #D5D5D5;
+}
+
+.priceBox{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 15px;
+
+    p{
+        margin-left: 15px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+
+        color: #000000;
+    }
+}
+
+.cartButton{
+    background-color: #3366FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px; 
+    width: 40px;
+    height: 40px;
+}
