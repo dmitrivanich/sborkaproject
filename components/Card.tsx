@@ -1,15 +1,18 @@
 import Image from 'next/image'
 
 import { Merchandise } from '@/types'
-import Cart from "@/public/cart_white.svg"
+import Cart from "@/public/images-cart/cart_white.svg"
 import Link from 'next/link'
 import styles from "../styles/Card.module.scss"
+import { useAppStore } from '@/store'
 
 export default function MerchandiseCard({merchandise}:{merchandise:Merchandise}) {
-  return (
+    const plusItemToCart = useAppStore(state=>state.plusItemToCart)
+
+    return (
     <div className={styles.card}>
         <div className={styles.imageBox}>
-            <Link href={"sneaker/" + merchandise.id}>
+            <Link href={"sneakers/" + merchandise.id}>
                 <Image
                     priority
                     src={`/images-sneakers/${merchandise?.name}.png`}
@@ -19,7 +22,7 @@ export default function MerchandiseCard({merchandise}:{merchandise:Merchandise})
                     sizes="(max-width: 768px) 100vw,
                     (max-width: 1200px) 50vw,
                     33vw"
-                    quality={100}
+                    quality={80}
                 />
             </Link>
         </div>
@@ -27,17 +30,21 @@ export default function MerchandiseCard({merchandise}:{merchandise:Merchandise})
         <p className={styles.cardName}>{merchandise.name}</p>
 
         <div className={styles.priceBox}>
-            <div className={styles.cartButton}>
+
+            <button className={styles.cartButton} onClick={()=>{
+                plusItemToCart(merchandise)
+            }}>
                 <Image
                     src={Cart}
                     alt="Cart picture"
                     width={24}
                     height={21}
                 />
-            </div>
+            </button>
+
             <p>$ {merchandise.price.toLocaleString('ru-RU')}</p>  
         </div>
 
     </div>
-  )
+    )
 }

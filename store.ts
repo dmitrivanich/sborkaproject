@@ -10,10 +10,48 @@ export const useAppStore = create<AppState>()(
       merchandises: sneakers.New_Balance,
       cart: [],
 
-      addToCart: (merch:Merchandise) => {set({cart: [...get().cart, merch]})},
-      removeFromCart: (merch:Merchandise) => {
-        let filtredCart = get().cart.filter(({id}) => id !== merch.id)
-        set({cart: filtredCart})
+      plusItemToCart: (merch:Merchandise) => {
+        let isAdded = false
+        let cartItems = get().cart?.map(el => {
+
+        if(el.merchandiseId === merch.id){
+          isAdded = true
+
+          return {
+            ...el,
+            quantity: el.quantity + 1
+          }
+
+          }else {
+            return el
+          }
+          
+        })
+
+        if(!isAdded){
+          cartItems.push({
+            merchandiseId: merch.id,
+            quantity: 1
+          })
+        }
+
+        set({cart: cartItems})
+      },
+
+      minusItemFromCart: (merch:Merchandise) => {
+        // let isAdded = false
+        // let cartItem = get().cart?.map(el => {
+        //   if(el.merchandiseId === merch.id){
+        //     return {
+        //       merchandiseId: el.merchandiseId,
+        //       quantity: el.quantity + 1
+        //     }
+        //   }
+        // })
+      },
+
+      removeItemFromCart: (merch:Merchandise) => {
+        
       },
 
     }),

@@ -1,25 +1,14 @@
-.back_button{
-    width: 156px;
-    height: 40px;
-    left: 170px;
-    top: 111px;
-
-    background: #3366FF;
-    border-radius: 3px;
-    color: #fff;
-    border: none;
-    margin: 20px 0;
-
-    cursor: pointer;
-    transition: opacity 0.2s ease;
-    &:hover{
-        opacity: 0.7;
-    }
+.card{
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    display: flexbox;
+    justify-content: center;
 }
 
-.card{
+.content{
     width: 892px;
-    margin: 10px auto 50px auto;
+    margin: 30px auto;
 }
 
 .cardName{
@@ -30,6 +19,26 @@
     color: #000000;
     padding: 20px 0 5px 0;
     margin-left: 15px;
+}
+
+.back_button{
+    width: 156px;
+    height: 40px;
+    left: 170px;
+    top: 111px;
+
+    background: #3366FF;
+    border-radius: 3px;
+    color: #fff;
+    border: none;
+    margin: 0 0 20px 0;
+
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    
+    &:hover{
+        opacity: 0.7;
+    }
 }
 
 .IMN{
@@ -43,9 +52,44 @@
 
 .imageBox{
     box-sizing: border-box;
-    user-select: none;
-    -webkit-user-drag: none;
     border: 1px solid #D5D5D5;
+}
+
+
+@media screen and (max-width: 1385px) {
+    .content{
+        width: 570px;
+    }
+    .imageBox{
+        width: 570px;
+        height: 325px;
+
+        img{
+            width: 568px;
+            height: 323px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 630px) {
+    .content{
+        width: 330px;
+    }
+
+    .imageBox{
+        width: 330px;
+        height: 189px;
+        
+        img{
+            width: 328px;
+            height: 187px;
+        }
+    }
+
+    .cardName{
+        width: 330px;
+    }
 }
 
 .priceBox{
@@ -73,4 +117,14 @@
     border-radius: 3px; 
     width: 40px;
     height: 40px;
+
+    border: none;
+    cursor: pointer;
+
+    &:hover{
+        opacity: 0.8;
+    }
+    &:active{
+        opacity: 0.5;
+    }
 }

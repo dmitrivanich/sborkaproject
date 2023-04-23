@@ -13,17 +13,13 @@
     position: relative;
 }
 
-.logo, .cart{
-    position: absolute;
-    user-select: none;
-    -webkit-user-drag: none;
-}
-
 .logo{
+    position: absolute;
     left: 30px;
 }
 
 .cart{
+    position: absolute;
     right: 30px;
 }
 

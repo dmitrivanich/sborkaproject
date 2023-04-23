@@ -1,0 +1,37 @@
+.container{
+    min-width: 410px;
+    height: 100%;
+    border-left: 1px solid #CFCFCF;
+    
+    .header{
+        padding: 40px 0 30px 40px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 21px;
+    }
+}
+
+.cart{
+    border-bottom: 1px solid #CFCFCF;
+    padding: 0 0 0 40px;
+    height: 300px;
+    overflow-y: auto;
+}
+
+.cartItem{
+    width: 330px;
+    background-color: rgb(249, 238, 203);
+}
+
+.total{
+    padding: 40px 0 0 40px;
+
+    
+}
+
+@media screen and (max-width: 1045px) {
+    .container{
+        display: none;
+    }
+}

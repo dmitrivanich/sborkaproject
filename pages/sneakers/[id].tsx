@@ -1,8 +1,11 @@
 import BigCard from '@/components/BigCard'
+import Cart from '@/components/Cart'
 import { useAppStore } from '@/store'
 import { Merchandise } from '@/types'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+
+import Page from '@/components/Page'
 
 function Sneaker() {
   const router = useRouter()
@@ -19,9 +22,10 @@ function Sneaker() {
   },[router])
   
   return (
-    <div>
-      {merchandise && <BigCard merchandise={merchandise}/>}
-    </div>
+    merchandise && <Page elements={[
+      <BigCard key={merchandise.id} merchandise={merchandise}/>,
+      <Cart key={"Cart_" + merchandise.id}/>
+    ]}/>
   )
 }
 

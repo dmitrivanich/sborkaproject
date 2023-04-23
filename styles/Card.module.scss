@@ -18,8 +18,6 @@
 
 .imageBox{
     padding: 28.5px 10.5px;
-    user-select: none;
-    -webkit-user-drag: none;
 }
 
 .priceBox{
@@ -47,4 +45,14 @@
     border-radius: 3px; 
     width: 40px;
     height: 40px;
+
+    border: none;
+    cursor: pointer;
+
+    &:hover{
+        opacity: 0.8;
+    }
+    &:active{
+        opacity: 0.5;
+    }
 }
