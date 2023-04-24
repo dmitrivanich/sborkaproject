@@ -4,7 +4,6 @@ import Head from 'next/head'
 import type { AppProps } from 'next/app'
 
 import { Roboto } from 'next/font/google'
-import Cart from '@/components/Cart'
 
 const roboto = Roboto({
   weight: ['400', '700'],

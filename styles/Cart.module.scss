@@ -1,6 +1,74 @@
+.hidden{
+    position: absolute;
+    right: 0px;
+    background: #fff;
+
+    height: 100%;
+    min-width: 410px;
+    border-left: 1px solid #CFCFCF;
+    
+    animation-name: hide;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+
+
+    .header{
+        padding: 40px 0 30px 40px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 21px;
+    }
+}
+
+.absolute{
+    position: absolute;
+    right: -500px;
+    background: #fff;
+
+    height: 100%;
+    min-width: 410px;
+    border-left: 1px solid #CFCFCF;
+    
+    animation-name: show;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+
+
+    .header{
+        padding: 40px 0 30px 40px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 21px;
+    }
+}
+
+.absolute{
+    position: absolute;
+    right: -500px;
+    background: #fff;
+
+    height: 100%;
+    min-width: 410px;
+    border-left: 1px solid #CFCFCF;
+    
+    animation-name: show;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+
+
+    .header{
+        padding: 40px 0 30px 40px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 21px;
+    }
+}
+
 .container{
     min-width: 410px;
-    height: 100%;
     border-left: 1px solid #CFCFCF;
     
     .header{
@@ -15,7 +83,7 @@
 .cart{
     border-bottom: 1px solid #CFCFCF;
     padding: 0 0 0 40px;
-    height: 300px;
+    height: 301px;
     overflow-y: auto;
 }
 
@@ -26,12 +94,35 @@
 
 .total{
     padding: 40px 0 0 40px;
-
+    width: 314px;
+    li{
+        margin-bottom: 22px;
+        display: flex;
+        justify-content: space-between;
+    }
     
 }
 
 @media screen and (max-width: 1045px) {
     .container{
         display: none;
+    }
+}
+
+@keyframes show {
+    0%{
+        right: -500px;
+    }
+    100%{
+        right: 0px;
+    }
+}
+
+@keyframes hide {
+    0%{
+        right: 0px;
+    }
+    100%{
+        right: -500px;
     }
 }

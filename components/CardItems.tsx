@@ -1,9 +1,14 @@
+import { useAppStore } from "@/store"
 import styles from "@/styles/CartItems.module.scss"
 import { CartItem, Merchandise } from "@/types"
 import Image from "next/image"
 
 export default function Sneakers({cartItems, merchandises}:{cartItems:CartItem[], merchandises: Merchandise[]}){
     
+    const minusItemFromCart = useAppStore(s => s.minusItemFromCart)
+    const plusItemToCart = useAppStore(s => s.plusItemToCart)
+    const removeItemFromCart = useAppStore(s => s.removeItemFromCart)
+
     const elements = cartItems.map((element,index)=>{
         let merchandise = merchandises.find((el)=>el.id === element.merchandiseId)
         if(merchandise){
@@ -28,9 +33,14 @@ export default function Sneakers({cartItems, merchandises}:{cartItems:CartItem[]
                 />
             </div>
             <div className={styles.cartItemInfo}>
-                <p>{element?.name   }</p>
+
+                <p>{element?.name}</p>
+
                 <div className={styles.qualityItems}>
-                    <button className={styles.quantityChangeButton}>
+
+                    <button className={styles.quantityChangeButton} onClick={()=>{
+                        element && minusItemFromCart(element)
+                    }}>
                         <Image
                             priority
                             src={`/images-cart/minus.svg`}
@@ -43,7 +53,9 @@ export default function Sneakers({cartItems, merchandises}:{cartItems:CartItem[]
 
                     {element?.quantity}
 
-                    <button className={styles.quantityChangeButton}>
+                    <button className={styles.quantityChangeButton}onClick={()=>{
+                        element && plusItemToCart(element)
+                    }}>
                         <Image
                             priority
                             src={`/images-cart/plus.svg`}
@@ -54,15 +66,15 @@ export default function Sneakers({cartItems, merchandises}:{cartItems:CartItem[]
                         />
                     </button>
 
-                    {"$ " + element?.price.toLocaleString("ru-RU")}
+                    {element?.quantity && `$ ${(element?.quantity * element?.price).toLocaleString("ru-RU")}`}
                 </div>
             </div>
             <div className={styles.removeItemButtonBox}>
-                <button>
+                <button onClick={()=> element && removeItemFromCart(element)}>
                     <Image
                         priority
                         src={`/images-cart/removeItem.svg`}
-                        alt="Cart picture"
+                        alt="Remove icon"
                         width={22}
                         height={22}
                         quality={80}

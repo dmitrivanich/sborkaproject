@@ -1,49 +1,80 @@
 import { useAppStore } from "@/store"
 import styles from "@/styles/Cart.module.scss"
-import { CartItem, Merchandise } from "@/types"
-import Image from "next/image"
+import { CartItem, Merchandise, Total } from "@/types"
 import { useEffect, useState } from "react"
 import Sneakers from "./CardItems"
 
 export default function Cart() {
+  const visibleCart = useAppStore(state=>state.visibleCart)
   const cart = useAppStore(state=>state.cart)
   const merch = useAppStore(state=>state.merchandises)
 
   const [cartItems, setCartItems] = useState<CartItem[]>([])
   const [merchandises, setMerchandises] = useState<Merchandise[]>([])
-
+  const [cartVisible, setCartVisible] = useState<boolean>(false)
+  
+  const [info, setInfo] = useState<Total>({
+    subtotal: 0,
+    tax: 100,
+    shipping: 150,
+    total: 0
+  })
 
   useEffect(()=>{
     setCartItems(cart)
     setMerchandises(merch)
-  },[cart,merch])
+    setCartVisible(visibleCart)
+    
+    let subtotal = 0
+
+    cart?.map(el=>{
+      let merch = merchandises.find(m => m.id === el.merchandiseId)
+      if(!merch?.price) return
+      subtotal += el.quantity * merch?.price
+    })
+
+    setInfo({
+      ...info,
+      subtotal:subtotal,
+      total: subtotal + info.tax + info.shipping
+    })
+  },[cart,merch,visibleCart])
+
+  const getCartStyle = () => {
+    if(cartItems.length > 0){
+      if(cartVisible) return styles.absolute
+      return styles.container
+    } else {
+      return styles.hidden
+    }
+  }
 
   return (
-    <div className={styles.container} key={"cart"}>
+    <div className={getCartStyle()} key={"cart"}>
         <p className={styles.header}>My basket</p>
         
         <div className={styles.cart}>
             <Sneakers cartItems={cartItems} merchandises={merchandises}/>
         </div>
 
-        <div className={styles.total}>
-          <div>
+        <ul className={styles.total}>
+          <li>
             <p>Subtotal</p>
-            <p></p>
-          </div>
-          <div>
+            <p>$ {info.subtotal.toLocaleString("ru-RU")}</p>
+          </li>
+          <li>
             <p>Tax</p>
-            <p></p> 
-          </div>
-          <div>
+            <p>$ {info.tax.toLocaleString("ru-RU")}</p> 
+          </li>
+          <li>
             <p>Shipping</p>
-            <p></p>
-          </div>
-          <div>
+            <p>$ {info.shipping.toLocaleString("ru-RU")}</p>
+          </li>
+          <li>
             <h2>Total</h2>
-            <h2></h2>
-          </div>
-        </div>
-    </div>
+            <h2>$ {info.total.toLocaleString("ru-RU")}</h2>
+          </li>
+        </ul>
+    </div>  
   )
 }

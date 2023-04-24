@@ -12,6 +12,7 @@ import { CartItem } from '@/types'
 export default function Header() {
 
   const cart = useAppStore(state => state.cart)
+  const changeVisibleCart = useAppStore(state => state.changeVisibleCart)
 
   const [cartItems, setCartItems] = useState<CartItem[]>([])
 
@@ -33,7 +34,7 @@ export default function Header() {
         />
       </Link>
 
-      <div className={styles.cart}>
+      <button className={styles.cart} onClick={() => cartItems.length > 0 && changeVisibleCart()}>
         <Image
           priority
           src={Cart}
@@ -45,7 +46,7 @@ export default function Header() {
         <div className={!!cartItems.length ? styles.visibleCartStatus : styles.hidden }>
           <p>{getCartItemsQuantity(cartItems)}</p>
         </div>
-      </div>
+      </button>
 
     </div>
   )

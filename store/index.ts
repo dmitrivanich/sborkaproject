@@ -1,14 +1,19 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
-import { AppState, Merchandise } from './types'
-import sneakers from "./public/sneakers.json"
+import { AppState, Merchandise } from '../types'
+import sneakers from "../public/sneakers.json"
 
 
 export const useAppStore = create<AppState>()(
   devtools(
     persist((set,get) => ({
       merchandises: sneakers.New_Balance,
+      visibleCart: false,
       cart: [],
+
+      changeVisibleCart: () => {
+        set({visibleCart: !get().visibleCart})
+      },
 
       plusItemToCart: (merch:Merchandise) => {
         let isAdded = false
@@ -22,9 +27,7 @@ export const useAppStore = create<AppState>()(
             quantity: el.quantity + 1
           }
 
-          }else {
-            return el
-          }
+          }else return el
           
         })
 
@@ -39,19 +42,34 @@ export const useAppStore = create<AppState>()(
       },
 
       minusItemFromCart: (merch:Merchandise) => {
-        // let isAdded = false
-        // let cartItem = get().cart?.map(el => {
-        //   if(el.merchandiseId === merch.id){
-        //     return {
-        //       merchandiseId: el.merchandiseId,
-        //       quantity: el.quantity + 1
-        //     }
-        //   }
-        // })
+        let cartItems = get().cart?.map(el => {
+
+        if(el.merchandiseId === merch.id){
+          return {
+            ...el,
+            quantity: el.quantity - 1
+          }
+
+        }else return el
+          
+        }).filter(el => el.quantity > 0)
+
+        set({cart: cartItems})
       },
 
       removeItemFromCart: (merch:Merchandise) => {
-        
+        let cartItems = get().cart?.map(el => {
+
+          if(el.merchandiseId === merch.id){
+            return {
+              ...el,
+              quantity: 0
+            }
+          }else return el
+            
+        }).filter(el => el.quantity > 0)
+  
+        set({cart: cartItems})
       },
 
     }),

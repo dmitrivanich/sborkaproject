@@ -21,6 +21,17 @@
 .cart{
     position: absolute;
     right: 30px;
+
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    &:hover{
+        opacity: 0.8;
+    }
+    &:active{
+        opacity: 0.5;
+    }
 }
 
 .visibleCartStatus {
