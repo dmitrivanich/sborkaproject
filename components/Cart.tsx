@@ -12,19 +12,13 @@ export default function Cart() {
   const [cartItems, setCartItems] = useState<CartItem[]>([])
   const [merchandises, setMerchandises] = useState<Merchandise[]>([])
   const [cartVisible, setCartVisible] = useState<boolean>(false)
-  
-  const [info, setInfo] = useState<Total>({
-    subtotal: 0,
-    tax: 100,
-    shipping: 150,
-    total: 0
-  })
+
+  const [info, setInfo] = useState<Total>({subtotal: 0,tax: 100,shipping: 150,total: 0})
 
   useEffect(()=>{
     setCartItems(cart)
     setMerchandises(merch)
     setCartVisible(visibleCart)
-    
     let subtotal = 0
 
     cart?.map(el=>{
@@ -40,17 +34,9 @@ export default function Cart() {
     })
   },[cart,merch,visibleCart])
 
-  const getCartStyle = () => {
-    if(cartItems.length > 0){
-      if(cartVisible) return styles.absolute
-      return styles.container
-    } else {
-      return styles.hidden
-    }
-  }
 
   return (
-    <div className={getCartStyle()} key={"cart"}>
+    <div className={`${styles.container} ${cartVisible && cartItems.length > 0 ? styles.visible : styles.hidden}`} key={"cart"}>
         <p className={styles.header}>My basket</p>
         
         <div className={styles.cart}>

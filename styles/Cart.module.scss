@@ -1,95 +1,46 @@
+.container{
+    height: 100%;
+    min-width: 410px;
+    border-left: 1px solid #CFCFCF;
+    background: #fff; 
+}
+
+.header{
+    padding: 40px 0 30px 40px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+}
+
 .hidden{
     position: absolute;
+    right: -500px;
+}
+
+.visible{
+    position: absolute;
     right: 0px;
-    background: #fff;
 
-    height: 100%;
-    min-width: 410px;
-    border-left: 1px solid #CFCFCF;
-    
-    animation-name: hide;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
-
-
-    .header{
-        padding: 40px 0 30px 40px;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 21px;
-    }
-}
-
-.absolute{
-    position: absolute;
-    right: -500px;
-    background: #fff;
-
-    height: 100%;
-    min-width: 410px;
-    border-left: 1px solid #CFCFCF;
-    
     animation-name: show;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
-
-
-    .header{
-        padding: 40px 0 30px 40px;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 21px;
-    }
 }
 
-.absolute{
-    position: absolute;
-    right: -500px;
-    background: #fff;
-
-    height: 100%;
-    min-width: 410px;
-    border-left: 1px solid #CFCFCF;
-    
-    animation-name: show;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
 
 
-    .header{
-        padding: 40px 0 30px 40px;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 21px;
-    }
-}
-
-.container{
-    min-width: 410px;
-    border-left: 1px solid #CFCFCF;
-    background: #fff;
-    animation-name: show;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    
-    .header{
-        padding: 40px 0 30px 40px;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 21px;
-    }
-}
 
 .cart{
     border-bottom: 1px solid #CFCFCF;
     padding: 0 0 0 40px;
     height: 301px;
     overflow-y: auto;
+
+    animation-name: opacity-animation;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
 }
+
 
 .cartItem{
     width: 330px;
@@ -107,9 +58,15 @@
     
 }
 
-@media screen and (max-width: 1045px) {
-    .container{
-        display: none;
+@keyframes hide {
+    0%{
+        position: absolute;
+        right: 0px;
+    }
+    100%{
+        height: 100%;
+        position: absolute;
+        right: -500px;
     }
 }
 
@@ -122,17 +79,62 @@
     99%{
         position: absolute;
     }
+
     100%{
         position: relative;
         right: 0px;
     }
 }
 
-@keyframes hide {
+@keyframes show-absolute {
     0%{
+        position: absolute;
+        right: -500px;
+    }
+
+    99%{
+        position: absolute;
+    }
+
+    100%{
+
         right: 0px;
     }
+}
+
+
+@keyframes opacity-animation {
+    0%{
+        opacity: 0;
+    }
+
     100%{
-        right: -500px;
+        opacity: 1;
+    }
+}
+
+
+
+@media screen and (max-width: 1045px) {
+    .hidden{
+        animation-name: hide;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+    .visible{
+        animation-name: show-absolute;
+        min-width: 100%;
+    }
+
+    .header{
+        padding: 30px 0 20px 30px;
+    }
+
+    .cart{
+        padding: 0 0 0 20px;
+    }
+
+    .total{
+        padding: 30px 0 0 30px;
     }
 }
