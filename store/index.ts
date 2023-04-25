@@ -11,8 +11,8 @@ export const useAppStore = create<AppState>()(
       visibleCart: false,
       cart: [],
 
-      changeVisibleCart: () => {
-        set({visibleCart: !get().visibleCart})
+      changeVisibleCart: (value?:boolean) => {
+        set({visibleCart: value || !get().visibleCart})
       },
 
       plusItemToCart: (merch:Merchandise) => {

@@ -16,14 +16,13 @@ export default function BigCard({merchandise}:{merchandise:Merchandise}) {
                 </Link>
                 <div className={styles.imageBox}>
                     <Image
-                        priority
                         src={`/images-sneakers/${merchandise?.name}.png`}
                         alt="Cart picture"
                         width={890}
                         sizes="(max-width: 1200px) 570px,
                         (max-width: 410px) 330px"
                         height={508}
-                        quality={80}
+                        quality={10}
                     />
                 </div>
 

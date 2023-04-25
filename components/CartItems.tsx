@@ -3,7 +3,7 @@ import styles from "@/styles/CartItems.module.scss"
 import { CartItem, Merchandise } from "@/types"
 import Image from "next/image"
 
-export default function Sneakers({cartItems, merchandises}:{cartItems:CartItem[], merchandises: Merchandise[]}){
+export default function CartItems({cartItems, merchandises}:{cartItems:CartItem[], merchandises: Merchandise[]}){
     
     const minusItemFromCart = useAppStore(s => s.minusItemFromCart)
     const plusItemToCart = useAppStore(s => s.plusItemToCart)
@@ -24,12 +24,11 @@ export default function Sneakers({cartItems, merchandises}:{cartItems:CartItem[]
         <div key={index} className={styles.cartItem}>
             <div className={styles.imageBox}>
                 <Image
-                    priority
                     src={`/images-sneakers/${element?.name}.png`}
                     alt="Sneaker picture"
                     width={90}
                     height={51}
-                    quality={80}
+                    quality={10}
                 />
             </div>
             <div className={styles.cartItemInfo}>

@@ -2,10 +2,12 @@ import { useAppStore } from "@/store"
 import styles from "@/styles/Cart.module.scss"
 import { CartItem, Merchandise, Total } from "@/types"
 import { useEffect, useState } from "react"
-import Sneakers from "./CardItems"
+import CartItems from "./CartItems"
 
 export default function Cart() {
+  const changeVisibleCart = useAppStore(state => state.changeVisibleCart)
   const visibleCart = useAppStore(state=>state.visibleCart)
+
   const cart = useAppStore(state=>state.cart)
   const merch = useAppStore(state=>state.merchandises)
 
@@ -18,7 +20,7 @@ export default function Cart() {
   useEffect(()=>{
     setCartItems(cart)
     setMerchandises(merch)
-    setCartVisible(visibleCart)
+    
     let subtotal = 0
 
     cart?.map(el=>{
@@ -32,15 +34,25 @@ export default function Cart() {
       subtotal:subtotal,
       total: subtotal + info.tax + info.shipping
     })
-  },[cart,merch,visibleCart])
+  },[cart,merch])
 
+
+  useEffect(()=>{
+    if(cartItems.length === 0){
+      changeVisibleCart(false)
+    }
+  },[cartItems])
+
+  useEffect(()=>{
+    setCartVisible(visibleCart)
+  },[cartItems, visibleCart])
 
   return (
-    <div className={`${styles.container} ${cartVisible && cartItems.length > 0 ? styles.visible : styles.hidden}`} key={"cart"}>
+    <div className={`${styles.container} ${cartVisible ? styles.visible : styles.hidden}`} key={"cart"}>
         <p className={styles.header}>My basket</p>
         
         <div className={styles.cart}>
-            <Sneakers cartItems={cartItems} merchandises={merchandises}/>
+            <CartItems cartItems={cartItems} merchandises={merchandises}/>
         </div>
 
         <ul className={styles.total}>
