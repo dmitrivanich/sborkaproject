@@ -22,7 +22,7 @@ export default function BigCard({merchandise}:{merchandise:Merchandise}) {
                         sizes="(max-width: 1200px) 570px,
                         (max-width: 410px) 330px"
                         height={508}
-                        quality={10}
+                        quality={70}
                     />
                 </div>
 

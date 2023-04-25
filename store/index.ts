@@ -12,7 +12,7 @@ export const useAppStore = create<AppState>()(
       cart: [],
 
       changeVisibleCart: (value?:boolean) => {
-        set({visibleCart: value || !get().visibleCart})
+        set({visibleCart: value === undefined ? !get().visibleCart : value})
       },
 
       plusItemToCart: (merch:Merchandise) => {

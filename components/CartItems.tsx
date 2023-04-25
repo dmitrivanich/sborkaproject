@@ -24,11 +24,12 @@ export default function CartItems({cartItems, merchandises}:{cartItems:CartItem[
         <div key={index} className={styles.cartItem}>
             <div className={styles.imageBox}>
                 <Image
+                    priority = {index >= 3 ? false : true}
                     src={`/images-sneakers/${element?.name}.png`}
                     alt="Sneaker picture"
                     width={90}
                     height={51}
-                    quality={10}
+                    quality={50}
                 />
             </div>
             <div className={styles.cartItemInfo}>
@@ -41,12 +42,11 @@ export default function CartItems({cartItems, merchandises}:{cartItems:CartItem[
                         element && minusItemFromCart(element)
                     }}>
                         <Image
-                            priority
                             src={`/images-cart/minus.svg`}
                             alt="minus"
                             width={20}
                             height={20}
-                            quality={80}
+                            quality={10}
                         />
                     </button>
 
@@ -56,12 +56,11 @@ export default function CartItems({cartItems, merchandises}:{cartItems:CartItem[
                         element && plusItemToCart(element)
                     }}>
                         <Image
-                            priority
                             src={`/images-cart/plus.svg`}
                             alt="plus"
                             width={20}
                             height={20}
-                            quality={80}
+                            quality={10}
                         />
                     </button>
 
@@ -71,12 +70,11 @@ export default function CartItems({cartItems, merchandises}:{cartItems:CartItem[
             <div className={styles.removeItemButtonBox}>
                 <button onClick={()=> element && removeItemFromCart(element)}>
                     <Image
-                        priority
                         src={`/images-cart/removeItem.svg`}
                         alt="Remove icon"
                         width={22}
                         height={22}
-                        quality={80}
+                        quality={10}
                     />
                 </button>
             </div>

@@ -6,7 +6,7 @@ import Link from 'next/link'
 import styles from "../styles/Card.module.scss"
 import { useAppStore } from '@/store'
 
-export default function MerchandiseCard({merchandise}:{merchandise:Merchandise}) {
+export default function MerchandiseCard({merchandise,index}:{merchandise:Merchandise, index:number}) {
     const plusItemToCart = useAppStore(state=>state.plusItemToCart)
 
     return (
@@ -14,7 +14,7 @@ export default function MerchandiseCard({merchandise}:{merchandise:Merchandise})
         <div className={styles.imageBox}>
             <Link href={"sneakers/" + merchandise.id}>
                 <Image
-                    priority
+                    priority = {index >= 3 ? false : true}
                     src={`/images-sneakers/${merchandise?.name}.png`}
                     alt="Cart picture"
                     width={228}
@@ -22,7 +22,7 @@ export default function MerchandiseCard({merchandise}:{merchandise:Merchandise})
                     sizes="(max-width: 768px) 100vw,
                     (max-width: 1200px) 50vw,
                     33vw"
-                    quality={10}
+                    quality={50}
                 />
             </Link>
         </div>

@@ -35,7 +35,7 @@ export default function Header() {
         />
       </Link>
 
-      <button className={styles.cart} onClick={() => cartItems.length > 0 && changeVisibleCart()}>
+      <button className={styles.cart} onClick={() => changeVisibleCart()}>
         <Image
           priority
           src={Cart}

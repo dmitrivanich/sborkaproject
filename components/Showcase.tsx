@@ -9,9 +9,9 @@ export default function Showcase() {
     return (
         <div className={styles.content} key={"showcase"}>
             <div className={styles.merchandises}>
-                {merchandises.map((merchandise:Merchandise) => 
+                {merchandises.map((merchandise:Merchandise,index:number) => 
                     merchandise && <div className={styles.merchandise} key={merchandise.id}>
-                        <Card merchandise={merchandise}/>
+                        <Card merchandise={merchandise} index={index}/>
                     </div>)
                 }
             </div>
