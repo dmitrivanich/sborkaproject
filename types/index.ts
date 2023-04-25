@@ -5,7 +5,7 @@ export interface AppState {
   plusItemToCart: (merch: Merchandise) => void,
   minusItemFromCart: (merch: Merchandise) => void,
   removeItemFromCart: (merch: Merchandise) => void,
-  changeVisibleCart: (value:boolean) => void
+  changeVisibleCart: (value?:boolean) => void
 }
   
 export interface Total {

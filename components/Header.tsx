@@ -31,6 +31,7 @@ export default function Header() {
             alt="Logo picture"
             width={89}
             height={32}
+            quality={10}
         />
       </Link>
 
@@ -41,6 +42,7 @@ export default function Header() {
           alt="Cart picture"
           width={24}
           height={21}
+          quality={10}
         />
         
         <div className={!!cartItems.length ? styles.visibleCartStatus : styles.hidden }>

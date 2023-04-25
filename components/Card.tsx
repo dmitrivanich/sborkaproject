@@ -22,7 +22,7 @@ export default function MerchandiseCard({merchandise}:{merchandise:Merchandise})
                     sizes="(max-width: 768px) 100vw,
                     (max-width: 1200px) 50vw,
                     33vw"
-                    quality={80}
+                    quality={10}
                 />
             </Link>
         </div>
@@ -39,6 +39,7 @@ export default function MerchandiseCard({merchandise}:{merchandise:Merchandise})
                     alt="Cart picture"
                     width={24}
                     height={21}
+                    quality={10}
                 />
             </button>
 

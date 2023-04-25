@@ -38,6 +38,7 @@ export default function BigCard({merchandise}:{merchandise:Merchandise}) {
                             alt="Cart picture"
                             width={24}
                             height={21}
+                            quality={10}
                         />
                     </button>
                     <p>$ {merchandise.price.toLocaleString('ru-RU')}</p>  
