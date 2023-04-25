@@ -8,7 +8,7 @@ export const useAppStore = create<AppState>()(
   devtools(
     persist((set,get) => ({
       merchandises: sneakers.New_Balance,
-      visibleCart: false,
+      visibleCart: null,
       cart: [],
 
       changeVisibleCart: (value?:boolean) => {

@@ -1,6 +1,6 @@
 export interface AppState {
   merchandises: Merchandise[],
-  visibleCart:boolean,
+  visibleCart:boolean | null,
   cart: CartItem[],
   plusItemToCart: (merch: Merchandise) => void,
   minusItemFromCart: (merch: Merchandise) => void,

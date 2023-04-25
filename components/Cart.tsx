@@ -13,7 +13,7 @@ export default function Cart() {
 
   const [cartItems, setCartItems] = useState<CartItem[]>([])
   const [merchandises, setMerchandises] = useState<Merchandise[]>([])
-  const [cartVisible, setCartVisible] = useState<boolean>(false)
+  const [cartVisible, setCartVisible] = useState<boolean | null>(null)
 
   const [info, setInfo] = useState<Total>({subtotal: 0,tax: 100,shipping: 150,total: 0})
 
@@ -38,10 +38,10 @@ export default function Cart() {
 
 
   useEffect(()=>{
-    if(cartItems.length === 0){
+    if(cartItems.length === 0 && visibleCart !== null){
       changeVisibleCart(false)
     }
-  },[cartItems])
+  },[cartItems, visibleCart])
 
   useEffect(()=>{
     setCartVisible(visibleCart)
