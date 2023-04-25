@@ -48,7 +48,7 @@ export default function Cart() {
   },[cartItems, visibleCart])
 
   return (
-    <div className={`${styles.container} ${cartVisible ? styles.visible : styles.hidden}`} key={"cart"}>
+    <div className={`${styles.container} ${cartVisible ? styles.visible : cartVisible !== null ? styles.hidden : ''}`} key={"cart"}>
         <p className={styles.header}>My basket</p>
         
         <div className={styles.cart}>

@@ -3,9 +3,8 @@
     min-width: 410px;
     border-left: 1px solid #CFCFCF;
     background: #fff; 
-    
-    position: absolute;
-    right: -500px;
+
+    display: none;
 }
 
 .header{
@@ -17,11 +16,13 @@
 }
 
 .hidden{
+    display: block;
     position: absolute;
     right: -500px;
 }
 
 .visible{
+    display: block;
     position: absolute;
     right: 0px;
 
