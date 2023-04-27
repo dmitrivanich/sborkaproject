@@ -19,7 +19,7 @@ export default function MerchandiseCard({merchandise,index}:{merchandise:Merchan
                     alt="Cart picture"
                     width={228}
                     height={130}
-                    quality={50}
+                    quality={70}
                 />
             </Link>
         </div>
