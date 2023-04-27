@@ -19,9 +19,6 @@ export default function MerchandiseCard({merchandise,index}:{merchandise:Merchan
                     alt="Cart picture"
                     width={228}
                     height={130}
-                    sizes="(max-width: 768px) 100vw,
-                    (max-width: 1200px) 50vw,
-                    33vw"
                     quality={50}
                 />
             </Link>
