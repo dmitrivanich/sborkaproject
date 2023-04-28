@@ -3,6 +3,7 @@ import styles from "@/styles/Cart.module.scss"
 import { CartItem, Merchandise, Total } from "@/types"
 import { useEffect, useState } from "react"
 import CartItems from "./CartItems"
+import Image from "next/image"
 
 export default function Cart() {
   const changeVisibleCart = useAppStore(state => state.changeVisibleCart)
@@ -49,6 +50,17 @@ export default function Cart() {
 
   return (
     <div className={`${styles.container} ${cartVisible ? styles.visible : cartVisible !== null ? styles.hidden : ''}`} key={"cart"}>
+        <button className={styles.closeBtn} onClick={()=>changeVisibleCart(false)}>
+          <Image
+            priority
+            src={`/images-cart/close.svg`}
+            alt="Close picture"
+            width={22}
+            height={22}
+            quality={70}
+          />
+        </button>
+
         <p className={styles.header}>My basket</p>
         
         <div className={styles.cart}>

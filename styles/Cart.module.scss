@@ -7,6 +7,24 @@
     display: none;
 }
 
+.closeBtn{
+    display: none;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    &:hover{
+        opacity: 0.8;
+    }
+    &:active{
+        opacity: 0.5;
+    }
+}
+
 .header{
     padding: 40px 0 30px 40px;
     font-style: normal;
@@ -36,8 +54,8 @@
 
 .cart{
     border-bottom: 1px solid #CFCFCF;
-    padding: 0 0 0 40px;
-    height: 301px;
+    padding: 0 0 40px 40px;
+    max-height: 301px;
     overflow-y: auto;
 
     animation-name: opacity-animation;
@@ -70,27 +88,29 @@
     }
 }
 
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 650px) {
     .visible{
         min-width: 100%;
     }
 
-    // .header{
-    //     width: 90%;
-    //     padding: 0;
-    //     margin: 30px 5%;
-    // }
+    .header{
+        padding: 80px 0 30px 40px;
+    }
+    .closeBtn{
+        display: block;
+    }
 
     .cart{
-        width: 330px;
-        padding: 0;
-        margin: 0 auto;
+        margin: 0;
+        padding-right: 5px;
+        height: calc(100vh - 81px - 131px - 175px - 50px);
         overflow-x: hidden;
     }
 
     .total{
         padding: 0;
         width: 77%;
+        min-height: 175px;
         margin: 40px 13% 40px 10%;
     }
 }
